@@ -1,7 +1,15 @@
+
+const navItems = [
+  { href: '/', label: "Accueil", exact: true },
+  { href: '/about', label: "À propos" },
+  { href: '/podcast', label: "Nos Podcasts" },
+  { href: '/contact', label: "Contact" }
+]
+
 export default function NavBar() {
   return (
     <header>
-      <img src="/svg/background.svg" alt="Background" />
+      <img src="/svg/logo.svg" alt="Background" />
       <nav>
         <a href="/">Accueil</a>
         <a href="/about">À propos</a>
