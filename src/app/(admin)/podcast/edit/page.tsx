@@ -1,4 +1,4 @@
-export default function ModifyPodcastPage() {
+export default function EditPodcastPage() {
   return(
   <main className="container views">
     <form method="post" action="/podcast/edit?id={{.Id}}" className="data">
