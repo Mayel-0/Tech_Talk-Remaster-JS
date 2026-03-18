@@ -454,6 +454,12 @@ footer > div:nth-child(3) svg {
 		fill 0.2s ease;
 }
 
+footer > div:nth-child(3) img {
+	transition:
+		transform 0.2s ease,
+		opacity 0.2s ease;
+}
+
 /* Colonnes */
 footer > div {
 	display: flex;
@@ -462,7 +468,8 @@ footer > div {
 }
 
 /* Logo */
-footer svg {
+footer svg,
+footer > img {
 	height: 90px;
 	width: 90px;
 }
@@ -517,7 +524,8 @@ footer > div:nth-child(3) > div {
 	margin-top: 0.5rem;
 }
 
-footer > div:nth-child(3) svg {
+footer > div:nth-child(3) svg,
+footer > div:nth-child(3) img {
 	height: 28px;
 	width: 28px;
 	cursor: pointer;
@@ -526,7 +534,8 @@ footer > div:nth-child(3) svg {
 		opacity 0.2s ease;
 }
 
-footer > div:nth-child(3) svg:hover {
+footer > div:nth-child(3) svg:hover,
+footer > div:nth-child(3) img:hover {
 	transform: scale(1.15);
 	opacity: 0.8;
 }

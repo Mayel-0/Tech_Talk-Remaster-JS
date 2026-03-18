@@ -19,10 +19,15 @@ export default function Footer() {
       <div>
         <p>Suivez nous!</p>
         <div>
-          <img src="/svg/youtube.svg" alt="Logo YouTube" />
-          <img src="/svg/spotify.svg" alt="Logo Spotify" />
-          <img src="/svg/instagram.svg" alt="Logo Instagram" />
-          <div style={{ color: "#feb161" }}></div>
+          <div>
+            <img src="/svg/youtube.svg" alt="Logo YouTube"/>
+          </div>
+          <div>
+            <img src="/svg/spotify.svg" alt="Logo Spotify"/>
+          </div>
+          <div>
+            <img src="/svg/instagram.svg" alt="Logo Instagram"/>
+          </div>
         </div>
         <p>
           Design by <span>TechTalk</span>
