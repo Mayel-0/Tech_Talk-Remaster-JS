@@ -1,67 +1,61 @@
-export default function PodcastPage() {
+import { getAllPodcasts } from "@/lib/actions/podcasts"
+import { createClient } from "@/lib/supabase/server"
+
+export default async function PodcastPage() {
+  const podcasts = await getAllPodcasts();
+
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+
+  let isAdmin = false
+  if (user) {
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('role')
+      .eq('id', user.id)
+      .single()
+    isAdmin = profile?.role === 'admin'
+  }
+
   return (
   <main className="container views">
     <div className="ContaineurCard">
-      {
-        //{{range .Podcasts}}
-      }
-      <div className="Card">
-        <a href="/podcast/details?id={{.Id}}">
-        {
-          //{{template "LogoPodcast"}}
-        }
-          <div className="podcast">
-            <h2>TITRE</h2>
-            {
-              //{{.Title}}
-            }
-            <p><strong>Invités :</strong></p>
-            {
-              //{{.NameIntervenant}}
-            }
-            <p><strong>Sortie :</strong></p>
-            {
-              //{{.FormattedDate}}
-            }
+      {podcasts.map((podcast) => (
+        <div className="Card" key={podcast.id}>
+          <a href={`/podcast/${podcast.id}`}>
+            <img src="/svg/logoPodcast.svg" alt="Logo Podcast" />
+            <div className="podcast">
+              <h2>TITRE</h2>
+              {podcast.title}
+              <p><strong>Invités :</strong></p>
+              {podcast.name_intervenant}
+              <p><strong>Sortie :</strong></p>
+              {podcast.date}
+            </div>
+          </a>
+          {isAdmin && (
             <div className="linkAdmin">
-              {
-                //{{if $.IsAdmin}}
-              }
-              <a href="/podcast/edit?id={{.Id}}">
+              <a href={`/podcast/edit?id=${podcast.id}`}>
                 <button type="submit">Éditer</button>
               </a>
-              <form action="/podcast/delete?id={{.Id}}" method="post">
+              <form action={`/podcast/delete?id=${podcast.id}`} method="post">
                 <button type="submit">Supprimer</button>
               </form>
-              {
-                // {{end}}
-              }
             </div>
-          </div>
-        </a>
+          )}
+        </div>
+      ))}
+    </div>
+    {isAdmin && (
+      <div className="buttonAdmin">
+        <a href="/podcast/create" className="buttonAdminLink">Creation</a>
       </div>
-      {
-        //{{end}}
-      }
-    </div>
-    {
-      //{{if $.IsAdmin}}
-    }
-    <div className="buttonAdmin">
-      <a href="/podcast/create" className="buttonAdminLink">Creation</a>
-    </div>
-    {
-      //{{end}}
-    }
+    )}
 
-    {
-      /*
-      <div className="backgroundSVG">
-        {{template "Background"}}
-        {{template "Background"}}
-      </div>
-      */
-    }
+    {/* <div className="backgroundSVG">
+      <img src="/svg/background.svg" alt="Background" />
+      <img src="/svg/background.svg" alt="Background" />
+    </div> */}
   </main>
   )
 }

@@ -1,7 +1,9 @@
+import { createPodcast } from "@/lib/actions/podcasts"
+
 export default function CreatePodcastPage() {
   return (
   <main>
-    <form method="post" action="/podcast/create" className="data">
+    <form action={createPodcast} className="data">
       <input type="text" name="title" placeholder="Title" />
       <input type="text" name="description" placeholder="Description" />
       <input type="text" name="youtube_url" placeholder="URL Youtube" />

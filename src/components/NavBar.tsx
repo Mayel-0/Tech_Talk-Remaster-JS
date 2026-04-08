@@ -20,7 +20,7 @@ export default function NavBar() {
           const active = item.exact ? pathname === item.href : pathname.startsWith(item.href)
 
           return (
-            <a href={item.href} className={active ? '' : ''}>
+            <a key={item.href} href={item.href} className={active ? '' : ''}>
               {item.label}
             </a>
           )

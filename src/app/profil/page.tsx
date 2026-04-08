@@ -1,3 +1,5 @@
+import { signOut } from "@/lib/actions/auth"
+
 export default function ProfilPage() {
   return (
     <main className="containerprofile">
@@ -5,12 +7,7 @@ export default function ProfilPage() {
       <p>Email : </p>
       <p>Rôle : </p>
 
-      {
-        //    <p>Email : {{.Email}}</p>
-        //    <p>Rôle : {{.Role}}</p>
-      }
-
-      <form method="post" action="/logout">
+      <form action={signOut}>
         <button type="submit">Se déconnecter</button>
       </form>
 

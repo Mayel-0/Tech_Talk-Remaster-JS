@@ -1,37 +1,40 @@
-export default function DetailsPage() {
+import { getPodcastById } from "@/lib/actions/podcasts"
+import { notFound } from "next/navigation"
+
+export default async function DetailsPage({ params }: { params: Promise<{ podcastId: string }> }) {
+  const { podcastId } = await params
+  const podcast = await getPodcastById(podcastId)
+
+  if (!podcast) notFound()
+
+  const youtubeUrl = podcast.youtube_url
+    ? podcast.youtube_url.startsWith('http') ? podcast.youtube_url : `https://${podcast.youtube_url}`
+    : '#'
+
+  const formattedDate = podcast.date
+    ? new Date(podcast.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })
+    : ''
+
   return (
   <main className="containerDetails">
     <div className="podcastDetails">
-      <a href="{{.YoutubeURL}}">
+      <a href={youtubeUrl}>
         <div className="podcastDetails__image">
-          {
-            //{{template "LogoPodcast"}}
-          }
+          <img src="/svg/logoPodcast.svg" alt="Logo Podcast" />
         </div>
       </a>
       <div className="podcastDetails__info">
-        <h2>TITRE</h2>
-        {
-          //{{.Title}}
-        }
-        <p><strong>Sortie : </strong></p>
-        {
-          //{{.FormattedDate}}
-        }
-        <p><strong>Invités : </strong></p>
-        {
-          //{{.NameIntervenant}}
-        }
+        <h2>{podcast.title}</h2>
+        <p><strong>Sortie : </strong>{formattedDate}</p>
+        <p><strong>Invités : </strong>{podcast.name_intervenant}</p>
         <div className="podcastDetails__description">
           <label><strong>Résumé :</strong></label>
-          <p>Description</p>
-          {
-            //{{.Description}}
-          }
+          <p>{podcast.description}</p>
         </div>
       </div>
     </div>
     <div className="JustRotateIt">
+      <img src="/svg/background.svg" alt="Background" />
     </div>
   </main>
   )
