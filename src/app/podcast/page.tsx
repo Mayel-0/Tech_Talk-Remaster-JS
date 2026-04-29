@@ -52,10 +52,10 @@ export default async function PodcastPage() {
       </div>
     )}
 
-    {/* <div className="backgroundSVG">
+    <div className="backgroundSVG contact">
       <img src="/svg/background.svg" alt="Background" />
       <img src="/svg/background.svg" alt="Background" />
-    </div> */}
+    </div>
   </main>
   )
 }

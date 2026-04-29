@@ -348,12 +348,13 @@ footer {
 
 .podcastDetails {
   display: flex;
-  margin-left: 10%;
+	width: 80%;
 
   .podcastDetails__info {
     display: flex;
     flex-direction: column;
     margin-left: 6%;
+		width: 450px;
 
     p {
       margin: 0;
@@ -1020,6 +1021,7 @@ main {
 	left: 0;
 	width: 100vw;
 	height: 100vh;
+	pointer-events: none;
 }
 
 .backgroundSVG img {
@@ -1048,8 +1050,9 @@ main {
 }
 
 .JustRotateIt {
-  position: relative;
+  position: absolute;
 	transform: rotate(180deg);
+	right: 0px;
 }
 
 
