@@ -283,6 +283,12 @@ footer {
 	color: var(--accent);
 }
 
+.Card a {
+	width: 280px;
+	height: 500px;
+}
+
+
 .Card::after {
 	content: "Écouter  ▶";
 	display: flex;
@@ -311,6 +317,10 @@ footer {
 	background-repeat: no-repeat;
 	background-position: right 8px center;
 	background-size: 16px 16px;
+}
+
+.Card img {
+
 }
 
 .podcastDetails__image::after {
@@ -1010,6 +1020,10 @@ main {
 	}
 	.form-group-side {
 		width: 100%;
+	}
+
+	button {
+		margin-top: 1.5rem;
 	}
 }
 
