@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getAllPodcasts } from "@/lib/actions/podcasts"
+import { getAllPodcasts, deletePodcast } from "@/lib/actions/podcasts"
 import { createClient } from "@/lib/supabase/server"
 
 export const metadata: Metadata = {
@@ -42,7 +42,7 @@ export default async function PodcastPage() {
               <a href={`/podcast/edit?id=${podcast.id}`}>
                 <button type="submit">Éditer</button>
               </a>
-              <form action={`/podcast/delete?id=${podcast.id}`} method="post">
+              <form action={deletePodcast.bind(null, podcast.id)}>
                 <button type="submit">Supprimer</button>
               </form>
             </div>

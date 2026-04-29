@@ -57,6 +57,8 @@ export async function createPodcast(formData: FormData) {
     const imageFile = formData.get('image') as File | null
     const image_url = imageFile && imageFile.size > 0 ? await uploadPodcastImage(supabase, imageFile) : null
 
+    const date = (formData.get('date') as string) || null
+
     const { error } = await supabase
         .from('podcasts')
         .insert({
@@ -64,7 +66,7 @@ export async function createPodcast(formData: FormData) {
             description: formData.get('description') as string,
             youtube_url: formData.get('youtube_url') as string,
             name_intervenant: formData.get('name_intervenant') as string,
-            date: formData.get('date') as string,
+            date,
             image_url,
         })
 
@@ -84,7 +86,7 @@ export async function updatePodcast(id: string, formData: FormData) {
         description: formData.get('description') as string,
         youtube_url: formData.get('youtube_url') as string,
         name_intervenant: formData.get('name_intervenant') as string,
-        date: formData.get('date') as string,
+        date: (formData.get('date') as string) || null,
     }
     if (newImageUrl !== undefined) updateData.image_url = newImageUrl
 
@@ -103,7 +105,7 @@ export async function deletePodcast(id: string) {
         .delete()
         .eq('id', id)
 
-    if (error) return { error: error.message }
+    if (error) throw new Error(error.message)
 
-    return { success: true }
+    redirect('/podcast')
 }

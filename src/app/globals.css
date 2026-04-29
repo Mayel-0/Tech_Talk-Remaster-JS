@@ -581,10 +581,12 @@ footer > div:last-child {
 
 @media (max-width: 900px) {
 	footer {
+		height: auto;
 		flex-wrap: wrap;
 		justify-content: center;
 		text-align: center;
 		gap: 2rem;
+		padding: 2rem 5%;
 	}
 
 	footer > div {
@@ -594,6 +596,12 @@ footer > div:last-child {
 	footer > div:last-child {
 		align-items: center;
 	}
+
+	footer > div:nth-child(2) {
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 1rem;
+	}
 }
 
 @media (max-width: 600px) {
@@ -602,6 +610,15 @@ footer > div:last-child {
 		border-left: none;
 		border-right: none;
 		border-radius: 0;
+		padding: 1.5rem 1rem;
+		gap: 1.5rem;
+	}
+
+	footer > div:nth-child(2) {
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 0.75rem;
 	}
 }
 
@@ -1095,5 +1112,109 @@ main {
   position: absolute;
 	transform: rotate(180deg);
 	right: 0px;
+}
+
+/* =====================
+   RESPONSIVE
+   ===================== */
+
+/* Header : empile logo + nav sur mobile */
+@media (max-width: 900px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding-left: 0;
+    padding: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  header nav {
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* Réduction du padding .container sur mobile */
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem 1rem;
+  }
+}
+
+/* Page À propos : 1 colonne sur mobile */
+@media (max-width: 768px) {
+  .section-about {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Page Contact : formulaire fluide sur mobile */
+@media (max-width: 768px) {
+  .contact-form {
+    width: 100%;
+  }
+
+  .contact-form .form-group-top {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding-left: 10px;
+  }
+}
+
+/* Page Détail Podcast : empilement vertical sur mobile */
+@media (max-width: 900px) {
+  .containerDetails {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+  }
+
+  .podcastDetails {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  .podcastDetails__image svg {
+    height: 220px;
+    width: 220px;
+  }
+
+  .podcastDetails__image::after {
+    left: 130px;
+  }
+
+  .podcastDetails .podcastDetails__info {
+    width: 100% !important;
+    max-width: 90vw;
+    margin-left: 0;
+    padding: 0 1rem;
+  }
+
+  .podcastDetails__description {
+    width: 100% !important;
+    max-width: 90vw !important;
+  }
+
+  .podcastDetails__description p {
+    max-width: 100% !important;
+  }
+
+  .JustRotateIt {
+    display: none;
+  }
+}
+
+/* Masquer les SVG décoratifs sur mobile (évite le débordement) */
+@media (max-width: 768px) {
+  .backgroundSVG {
+    display: none;
+  }
 }
 
