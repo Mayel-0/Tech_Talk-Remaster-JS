@@ -1036,7 +1036,7 @@ main {
 
 .backgroundSVG.contact img:first-child {
 	position: absolute;
-	right: -50px;
+	right: -0px;
 	top: 20%;
 	transform: translateY(-50%);
 	transform: rotate(180deg);
@@ -1044,7 +1044,7 @@ main {
 
 .backgroundSVG.contact img:last-child{
 	position: absolute;
-	left: -50px;
+	left: 0px;
 	top: 50%;
 	transform: translateY(-30%);
 }
@@ -1054,5 +1054,4 @@ main {
 	transform: rotate(180deg);
 	right: 0px;
 }
-
 

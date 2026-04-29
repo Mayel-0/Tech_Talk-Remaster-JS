@@ -25,8 +25,7 @@ export default async function PodcastPage() {
           <a href={`/podcast/${podcast.id}`}>
             <img src="/svg/logoPodcast.svg" alt="Logo Podcast" />
             <div className="podcast">
-              <h2>TITRE</h2>
-              {podcast.title}
+              <h2>{podcast.title}</h2>
               <p><strong>Invités :</strong></p>
               {podcast.name_intervenant}
               <p><strong>Sortie :</strong></p>
