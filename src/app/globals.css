@@ -9,7 +9,7 @@
 
 @font-face {
 	font-family: "Ranade";
-	src: url("/public/fonts/Ranade-Variable.woff2") format("woff2-variations");
+	src: url("/fonts/Ranade-Variable.woff2") format("woff2-variations");
 	font-weight: 100 900;
 	font-style: normal;
 	font-display: swap;
@@ -17,7 +17,7 @@
 
 @font-face {
 	font-family: "RanadeItalic";
-	src: url("/public/fonts/Ranade-VariableItalic.woff2") format("woff2-variations");
+	src: url("/fonts/Ranade-VariableItalic.woff2") format("woff2-variations");
 	font-weight: 100 900;
 	font-style: italic;
 	font-display: swap;
@@ -28,7 +28,7 @@
 
 @font-face {
 	font-family: "Archivo";
-	src: url("/public/fonts/Archivo-Variable.woff2") format("woff2-variations");
+	src: url("/fonts/Archivo-Variable.woff2") format("woff2-variations");
 	font-weight: 100 900;
 	font-style: normal;
 	font-display: swap;
@@ -36,7 +36,7 @@
 
 @font-face {
 	font-family: "ArchivoItalic";
-	src: url("/public/fonts/Archivo-VariableItalic.woff2") format("woff2-variations");
+	src: url("/fonts/Archivo-VariableItalic.woff2") format("woff2-variations");
 	font-weight: 100 900;
 	font-style: italic;
 	font-display: swap;
