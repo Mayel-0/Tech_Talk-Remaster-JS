@@ -290,7 +290,7 @@ footer {
 	color: var(--bg);
 	background-color: var(--accent);
 	padding: 1px 10px;
-	width: 80px;
+	width: 90px;
 	height: 30px;
 	border-radius: 9px;
 	position: absolute;
@@ -320,7 +320,7 @@ footer {
 	color: var(--bg);
 	background-color: var(--accent);
 	padding: 1px 10px;
-	width: 120px;
+	width: 140px;
 	height: 45px;
 	border-radius: 9px;
 	position: relative;
@@ -980,7 +980,7 @@ main {
 	border: 1px solid var(--accent);
 	width: 100%;
 	margin: 0px;
-	padding-left: 70px;
+	padding-left: 76px;
 	color: var(--text);
 }
 
