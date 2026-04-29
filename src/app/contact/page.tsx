@@ -3,21 +3,37 @@ export default function ContactPage() {
     <main className="container views">
       <h2>Contactez-nous</h2>
       <form id="contactForm" className="contact-form">
-        <div className="form-group">
-          <label htmlFor="name">Nom</label>
-          <input type="text" id="name" name="name" required />
+        <div className="form-group-top">
+          <div className="form-group-side">
+            <div className="form-group">
+              <label htmlFor="first-name">Nom :</label>
+              <input type="text" id="first-name" name="first-name" required />
+            </div>
+            <div className="form-group">
+              <label htmlFor="email">Email :</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+          </div>
+          <div className="form-group-side">
+            <div className="form-group">
+              <label htmlFor="last-name">Prénom :</label>
+              <input type="text" id="last-name" name="last-name" required />
+            </div>
+            <div className="form-group">
+              <label htmlFor="number">N° de tél :</label>
+              <input type="text" id="number" name="number" required />
+            </div>
+          </div>
         </div>
         <div className="form-group">
-          <label htmlFor="email">Email</label>
-          <input type="email" id="email" name="email" required />
-        </div>
-        <div className="form-group">
-          <label htmlFor="message">Message</label>
+          <label htmlFor="message">Message :</label>
           <textarea id="message" name="message" rows={5} required></textarea>
         </div>
         <button type="submit">Envoyer</button>
       </form>
-      <div className="backgroundSVG">
+      <div className="backgroundSVG contact">
+        <img src="/svg/background.svg" alt="Background" />
+        <img src="/svg/background.svg" alt="Background" />
       </div>
     </main>
   )
