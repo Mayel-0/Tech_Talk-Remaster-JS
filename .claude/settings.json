@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s https://aauzoasqllvdoibxgovw.supabase.co/rest/v1/ -H 'apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFhdXpvYXNxbGx2ZG9pYnhnb3Z3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU2MzUzOTcsImV4cCI6MjA5MTIxMTM5N30.dyalM07YuYpeR12hZDXzaQp1xpn3iBAstS2fby5yfA4' -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFhdXpvYXNxbGx2ZG9pYnhnb3Z3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU2MzUzOTcsImV4cCI6MjA5MTIxMTM5N30.dyalM07YuYpeR12hZDXzaQp1xpn3iBAstS2fby5yfA4')",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"https://aauzoasqllvdoibxgovw.supabase.co/health\")",
+      "Bash(curl -s -o /dev/null -w '%{http_code}' https://aauzoasqllvdoibxgovw.supabase.co/rest/v1/podcast -H 'apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFhdXpvYXNxbGx2ZG9pYnhnb3Z3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU2MzUzOTcsImV4cCI6MjA5MTIxMTM5N30.dyalM07YuYpeR12hZDXzaQp1xpn3iBAstS2fby5yfA4' -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFhdXpvYXNxbGx2ZG9pYnhnb3Z3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU2MzUzOTcsImV4cCI6MjA5MTIxMTM5N30.dyalM07YuYpeR12hZDXzaQp1xpn3iBAstS2fby5yfA4')",
+      "Bash(curl -s -o /dev/null -w '%{http_code}' https://aauzoasqllvdoibxgovw.supabase.co/rest/v1/podcasts -H 'apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFhdXpvYXNxbGx2ZG9pYnhnb3Z3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU2MzUzOTcsImV4cCI6MjA5MTIxMTM5N30.dyalM07YuYpeR12hZDXzaQp1xpn3iBAstS2fby5yfA4' -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFhdXpvYXNxbGx2ZG9pYnhnb3Z3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU2MzUzOTcsImV4cCI6MjA5MTIxMTM5N30.dyalM07YuYpeR12hZDXzaQp1xpn3iBAstS2fby5yfA4')"
+    ]
+  }
+}
