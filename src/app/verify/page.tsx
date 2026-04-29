@@ -1,3 +1,9 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Vérification",
+};
+
 export default function VerifyPage() {
   return (
     <main className="container verify-page">

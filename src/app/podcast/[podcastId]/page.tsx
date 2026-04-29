@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import { getPodcastById } from "@/lib/actions/podcasts"
 import { notFound } from "next/navigation"
+
+export async function generateMetadata({ params }: { params: Promise<{ podcastId: string }> }): Promise<Metadata> {
+  const { podcastId } = await params
+  const podcast = await getPodcastById(podcastId)
+  return { title: podcast?.title ?? "Podcast" }
+}
 
 export default async function DetailsPage({ params }: { params: Promise<{ podcastId: string }> }) {
   const { podcastId } = await params
@@ -20,7 +27,7 @@ export default async function DetailsPage({ params }: { params: Promise<{ podcas
     <div className="podcastDetails">
       <a href={youtubeUrl}>
         <div className="podcastDetails__image">
-          <img src="/svg/logoPodcast.svg" alt="Logo Podcast" />
+          <img src={podcast.image_url ?? '/svg/logoPodcast.svg'} alt={podcast.title} />
         </div>
       </a>
       <div className="podcastDetails__info">

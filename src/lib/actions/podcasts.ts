@@ -11,6 +11,7 @@ export type Podcast = {
     youtube_url: string | null
     name_intervenant: string | null
     date: string | null
+    image_url: string | null
     created_at: string
 }
 
@@ -41,8 +42,20 @@ export async function getPodcastById(id: string): Promise<Podcast | null> {
     return data
 }
 
+async function uploadPodcastImage(supabase: ReturnType<typeof createAdminClient>, file: File): Promise<string | null> {
+    const ext = file.name.split('.').pop()
+    const path = `${Date.now()}.${ext}`
+    const { error } = await supabase.storage.from('podcast-images').upload(path, file)
+    if (error) return null
+    const { data } = supabase.storage.from('podcast-images').getPublicUrl(path)
+    return data.publicUrl
+}
+
 export async function createPodcast(formData: FormData) {
     const supabase = createAdminClient()
+
+    const imageFile = formData.get('image') as File | null
+    const image_url = imageFile && imageFile.size > 0 ? await uploadPodcastImage(supabase, imageFile) : null
 
     const { error } = await supabase
         .from('podcasts')
@@ -52,6 +65,7 @@ export async function createPodcast(formData: FormData) {
             youtube_url: formData.get('youtube_url') as string,
             name_intervenant: formData.get('name_intervenant') as string,
             date: formData.get('date') as string,
+            image_url,
         })
 
     if (error) throw new Error(error.message)
@@ -62,16 +76,19 @@ export async function createPodcast(formData: FormData) {
 export async function updatePodcast(id: string, formData: FormData) {
     const supabase = createAdminClient()
 
-    const { error } = await supabase
-        .from('podcasts')
-        .update({
-            title: formData.get('title') as string,
-            description: formData.get('description') as string,
-            youtube_url: formData.get('youtube_url') as string,
-            name_intervenant: formData.get('name_intervenant') as string,
-            date: formData.get('date') as string,
-        })
-        .eq('id', id)
+    const imageFile = formData.get('image') as File | null
+    const newImageUrl = imageFile && imageFile.size > 0 ? await uploadPodcastImage(supabase, imageFile) : undefined
+
+    const updateData: Record<string, string | null> = {
+        title: formData.get('title') as string,
+        description: formData.get('description') as string,
+        youtube_url: formData.get('youtube_url') as string,
+        name_intervenant: formData.get('name_intervenant') as string,
+        date: formData.get('date') as string,
+    }
+    if (newImageUrl !== undefined) updateData.image_url = newImageUrl
+
+    const { error } = await supabase.from('podcasts').update(updateData).eq('id', id)
 
     if (error) throw new Error(error.message)
 

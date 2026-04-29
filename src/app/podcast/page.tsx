@@ -1,5 +1,10 @@
+import type { Metadata } from "next";
 import { getAllPodcasts } from "@/lib/actions/podcasts"
 import { createClient } from "@/lib/supabase/server"
+
+export const metadata: Metadata = {
+  title: "Podcasts",
+};
 
 export default async function PodcastPage() {
   const podcasts = await getAllPodcasts();
@@ -23,7 +28,7 @@ export default async function PodcastPage() {
       {podcasts.map((podcast) => (
         <div className="Card" key={podcast.id}>
           <a href={`/podcast/${podcast.id}`}>
-            <img src="/svg/logoPodcast.svg" alt="Logo Podcast" />
+            <img src={podcast.image_url ?? '/svg/logoPodcast.svg'} alt={podcast.title} />
             <div className="podcast">
               <h2>{podcast.title}</h2>
               <p><strong>Invités :</strong></p>

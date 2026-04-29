@@ -1,5 +1,11 @@
 
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "À propos",
+};
+
 export default function AboutPage() {
   return (
     <main className="container views">

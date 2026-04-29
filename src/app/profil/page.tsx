@@ -1,4 +1,9 @@
+import type { Metadata } from "next";
 import { signOut } from "@/lib/actions/auth"
+
+export const metadata: Metadata = {
+  title: "Mon profil",
+};
 
 export default function ProfilPage() {
   return (
