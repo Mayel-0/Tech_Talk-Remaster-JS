@@ -30,10 +30,10 @@ export default function LoginPage() {
           <p>Un lien de connexion a été envoyé à votre adresse email.</p>
         ) : (
           <form onSubmit={handleSubmit} id="loginForm" className="loginForm">
-            <div>
+
               <label htmlFor="email">Email:</label>
               <input type="email" id="email" name="email" required />
-            </div>
+
             {error && <p>{error}</p>}
             <button type="submit" disabled={status === 'loading'}>
               {status === 'loading' ? 'Envoi...' : 'Se connecter'}

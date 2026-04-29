@@ -182,6 +182,28 @@ header nav {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	width: 100%;
+	button {
+		color : var(--accent);
+		background-color: transparent;
+		border: 1px solid var(--accent);
+		margin-top: 1.5rem;
+	}
+	button:hover {
+		background-color: var(--accent);
+		color: var(--bg);
+	}
+	input {
+		width: 300px;
+		background-color: transparent;
+		border: 1px solid var(--accent);
+		padding: 0.5rem;
+		border-radius: 6px;
+		color: var(--text);
+	}
+	label {
+		color: var(--accent);
+	}
 }
 
 footer {
@@ -330,13 +352,13 @@ footer {
 	color: var(--bg);
 	background-color: var(--accent);
 	padding: 1px 10px;
-	width: 140px;
+	width: 120px;
 	height: 45px;
 	border-radius: 9px;
 	position: relative;
 	bottom: 30px;
-	left: 190px;
-	font-size: 25px;
+	left: 170px;
+	font-size: 20px;
 }
 
 .podcastDetails__image::after {
@@ -419,6 +441,12 @@ footer {
 
 .linkAdmin {
 	height: 24px;
+	position: absolute;
+	bottom: -50px;
+	a {
+		height: 100%;
+		width: 100%;
+	}
 }
 
 .btn-accueil {
@@ -660,7 +688,7 @@ Page podcadt
 }
 
 .buttonAdmin {
-	margin-top: 3rem;
+	margin-top: 8rem;
 	display: flex;
 	justify-content: center;
 }
