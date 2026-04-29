@@ -284,18 +284,18 @@ footer {
 }
 
 .Card::after {
-	content: "Écouter";
+	content: "Écouter  ▶";
 	display: flex;
 	align-items: center;
 	color: var(--bg);
 	background-color: var(--accent);
 	padding: 1px 10px;
-	width: 90px;
+	width: 80px;
 	height: 30px;
 	border-radius: 9px;
 	position: absolute;
 	left: 190px; /* adapte la valeur */
-	bottom: 185px;
+	bottom: 210px;
 }
 
 .Card .podcast h2 {
@@ -314,18 +314,18 @@ footer {
 }
 
 .podcastDetails__image::after {
-	content: "Écouter";
+	content: "Écouter  ▶";
 	display: flex;
 	align-items: center;
 	color: var(--bg);
 	background-color: var(--accent);
 	padding: 1px 10px;
-	width: 140px;
+	width: 120px;
 	height: 45px;
 	border-radius: 9px;
 	position: relative;
 	bottom: 30px;
-	left: 220px;
+	left: 190px;
 	font-size: 25px;
 }
 
