@@ -38,7 +38,7 @@ export default function ErrorPage({
           Retour à l'accueil
         </Link>
       </div>
-      <div className="backgroundSVG error">
+      <div className="backgroundSVG contact">
         <img src="/svg/background.svg" alt="Background" />
         <img src="/svg/background.svg" alt="Background" />
       </div>
