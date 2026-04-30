@@ -11,7 +11,7 @@ export default function ContactPage({ searchParams }: { searchParams?: { sent?: 
     <main className="container views">
       <h2>Contactez-nous</h2>
       {sent && <p className="success-message">Merci, votre message a bien été envoyé.</p>}
-      <form id="contactForm" className="contact-form" action="/api/contact" method="post">
+      <form id="contactForm" className="contact-form" action="/contact" method="post">
         <div className="form-group-top">
           <div className="form-group-side">
             <div className="form-group">
