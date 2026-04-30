@@ -18,7 +18,7 @@ export async function POST(request: Request) {
 
   try {
     await sendContactEmail({ firstName, lastName, email, number, message });
-    return NextResponse.redirect(new URL("/contact?sent=1", request.url));
+    return NextResponse.redirect(new URL("/contact?sent=1", request.url), 303);
   } catch (error) {
     console.error("Erreur envoi email:", error);
     return NextResponse.json(
