@@ -10,10 +10,10 @@ export async function POST(request: Request) {
   const message = data.get("message")?.toString() ?? "";
 
   if (!email || !message) {
-    return NextResponse.json(
-      { error: "Email et message requis." },
-      { status: 400 },
-    );
+    const errorUrl = new URL("/erreur", request.url);
+    errorUrl.searchParams.set("message", "Email et message sont requis.");
+    errorUrl.searchParams.set("code", "400");
+    return NextResponse.redirect(errorUrl, 303);
   }
 
   try {
@@ -21,9 +21,12 @@ export async function POST(request: Request) {
     return NextResponse.redirect(new URL("/contact?sent=1", request.url), 303);
   } catch (error) {
     console.error("Erreur envoi email:", error);
-    return NextResponse.json(
-      { error: "Impossible d'envoyer le message." },
-      { status: 500 },
+    const errorUrl = new URL("/erreur", request.url);
+    errorUrl.searchParams.set(
+      "message",
+      "Impossible d'envoyer le message. Veuillez réessayer plus tard.",
     );
+    errorUrl.searchParams.set("code", "500");
+    return NextResponse.redirect(errorUrl, 303);
   }
 }
