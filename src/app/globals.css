@@ -1108,6 +1108,21 @@ main {
 	transform: translateY(-30%);
 }
 
+.backgroundSVG.error img:first-child {
+	position: absolute;
+	right: -0px;
+	top: 20%;
+	transform: translateY(-50%);
+	transform: rotate(180deg);
+}
+
+.backgroundSVG.error img:last-child {
+	position: absolute;
+	left: 0px;
+	top: 50%;
+	transform: translateY(-30%);
+}
+
 .JustRotateIt {
   position: absolute;
 	transform: rotate(180deg);
