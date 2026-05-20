@@ -5,14 +5,7 @@ export const metadata: Metadata = {
   title: "À propos",
 };
 
-type CarouselImage = {
-  src: string;
-  alt?: string;
-  title?: string;
-  subtitle?: string;
-};
-
-const images: CarouselImage[] = [
+const images = [
   { src: "/img/about_bg_1.jpg", title: "Page 1", subtitle: "TECH" },
   { src: "/img/image.png",      title: "Page 2", subtitle: "TECH" },
   { src: "/img/image2.png",     title: "Page 3", subtitle: "TECH" },
