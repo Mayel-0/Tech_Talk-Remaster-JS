@@ -24,6 +24,21 @@ export default async function PodcastPage() {
 
   return (
   <main className="container views">
+    <h1 className="centre">Retrouvez tous nos podcasts</h1>
+    <li>
+      <div>
+        <button className="select">Marketing & Communication</button>
+        <button>Créa Design</button>
+        <button>Tech & Business</button>
+        <button>Informatique</button>
+      </div>
+      <div>
+        <button>Cybersécurité</button>
+        <button>Audiovisuel</button>
+        <button>Architecture d'intérieur</button>
+        <button>3D, Animation & Jeux Vidéo</button>
+      </div>
+    </li>
     <div className="ContaineurCard">
       {podcasts.map((podcast) => (
         <div className="Card" key={podcast.id}>
