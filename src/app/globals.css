@@ -1299,5 +1299,9 @@ main {
 	li {
 		padding: 8px;
 	}
+
+	.box {
+		text-align: left;
+	}
 }
 

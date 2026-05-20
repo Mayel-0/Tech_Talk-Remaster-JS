@@ -14,7 +14,9 @@ export default function NavBar() {
 
   return (
     <header>
-      <img src="/svg/logo.svg" alt="Background" />
+      <a href="/">
+        <img src="/svg/logo.svg" alt="Background" />
+      </a>
       <nav>
         {navItems.map((item) => {
           const active = item.exact ? pathname === item.href : pathname.startsWith(item.href)

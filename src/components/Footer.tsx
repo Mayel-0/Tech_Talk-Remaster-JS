@@ -17,7 +17,6 @@ export default function Footer() {
         </div>
       </div>
       <div>
-        <p>Suivez nous!</p>
         <div>
           {/*<div>
             <img src="/svg/youtube.svg" alt="Logo YouTube"/>
