@@ -10,7 +10,7 @@ export default function Footer() {
           <a href="/about">À propos</a>
         </div>
         <div>
-          <a href="/podcast">Podcast</a>
+          <a href="/podcast">Episode</a>
         </div>
         <div>
           <a href="/contact">Contact</a>

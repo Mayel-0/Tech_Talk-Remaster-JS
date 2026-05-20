@@ -1305,3 +1305,13 @@ main {
 	}
 }
 
+
+
+.section-about p strong {
+	color: var(--accent);
+}
+
+
+.section-about p hr {
+	border: 1px solid var(--accent);
+}
