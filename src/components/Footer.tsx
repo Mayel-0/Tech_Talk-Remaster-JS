@@ -19,15 +19,20 @@ export default function Footer() {
       <div>
         <p>Suivez nous!</p>
         <div>
-          <div>
+          {/*<div>
             <img src="/svg/youtube.svg" alt="Logo YouTube"/>
           </div>
           <div>
             <img src="/svg/spotify.svg" alt="Logo Spotify"/>
-          </div>
-          <div>
-            <img src="/svg/instagram.svg" alt="Logo Instagram"/>
-          </div>
+          </div>*/}
+          <a href="https://www.instagram.com/techtalk.student/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div>
+              <img src="/svg/instagram.svg" alt="Logo Instagram"/>
+            </div>
+          </a>
         </div>
         <p>
           Design by <span>TechTalk</span>
