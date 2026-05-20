@@ -83,7 +83,7 @@ export default async function Home() {
                   <p><strong>Invités :</strong></p>
                   {p.name_intervenant}
                   <p><strong>Sortie :</strong></p>
-                  {p.date}
+                  {p.date ? new Date(p.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' }) : ''}
                 </div>
               </a>
               {isAdmin && (

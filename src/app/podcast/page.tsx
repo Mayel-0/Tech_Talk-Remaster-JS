@@ -49,7 +49,7 @@ export default async function PodcastPage() {
               <p><strong>Invités :</strong></p>
               {podcast.name_intervenant}
               <p><strong>Sortie :</strong></p>
-              {podcast.date}
+              {podcast.date ? new Date(podcast.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' }) : ''}
             </div>
           </a>
           {isAdmin && (
