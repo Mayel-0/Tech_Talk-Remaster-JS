@@ -102,15 +102,6 @@ export default function Carousel({
   return (
     <div className="carousel-root">
       <div className="carousel-wrapper">
-        <button
-          className="carousel-btn"
-          onClick={prev}
-          disabled={!loop && current === 0}
-          aria-label="Précédent"
-        >
-          ←
-        </button>
-
         <div
           className="carousel-track-outer"
           onTouchStart={onTouchStart}
@@ -144,14 +135,25 @@ export default function Carousel({
           </div>
         </div>
 
-        <button
-          className="carousel-btn"
-          onClick={next}
-          disabled={!loop && current === count - 1}
-          aria-label="Suivant"
-        >
-          →
-        </button>
+        <div className="orderButtonCarousel">
+          <button
+            className="carousel-btn"
+            onClick={prev}
+            disabled={!loop && current === 0}
+            aria-label="Précédent"
+          >
+            ←
+          </button>
+
+          <button
+            className="carousel-btn"
+            onClick={next}
+            disabled={!loop && current === count - 1}
+            aria-label="Suivant"
+          >
+            →
+          </button>
+        </div>
       </div>
 
       <div className="carousel-arrows">

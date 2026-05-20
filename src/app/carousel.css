@@ -8,10 +8,22 @@
   align-items: center;
   justify-content: center;
 
-  --accent: #e8d5b0;
   --muted: #6b6456;
-  --text: #f5f0e8;
   width: 100%;
+}
+
+:root {
+	--bg: #0d2432;
+	--accent: #feb161;
+	--text: #ede9de;
+	--accent2: #a35139;
+}
+
+.orderButtonCarousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
 }
 
 .carousel-label {
@@ -77,9 +89,9 @@
 }
 
 .carousel-btn {
-  width: 36px;
-  height: 36px;
-  border: 1px solid var(--muted);
+  width: 46px;
+  height: 46px;
+  border: 1px solid var(--accent);
   background: transparent;
   color: var(--text);
   cursor: pointer;
@@ -88,8 +100,9 @@
   justify-content: center;
   transition: all 0.2s ease;
   border-radius: 2px;
-  font-size: 16px;
+  font-size: 19px;
   flex-shrink: 0;
+  border-radius: 12px;
 }
 
 .carousel-btn:hover {
