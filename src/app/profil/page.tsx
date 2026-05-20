@@ -9,8 +9,6 @@ export default function ProfilPage() {
   return (
     <main className="containerprofile">
       <h1>Profil admin</h1>
-      <p>Email : </p>
-      <p>Rôle : </p>
 
       <form action={signOut}>
         <button type="submit">Se déconnecter</button>
