@@ -7,10 +7,10 @@ export default function Footer() {
           <a href="/index">Accueil</a>
         </div>
         <div>
-          <a href="/about">À propos</a>
+          <a href="/podcast">Episode</a>
         </div>
         <div>
-          <a href="/podcast">Episode</a>
+          <a href="/about">À propos</a>
         </div>
         <div>
           <a href="/contact">Contact</a>
