@@ -30,6 +30,15 @@ export default function Carousel({
 
   const count = images.length;
 
+  const [slidesVisible, setSlidesVisible] = useState(3);
+
+  useEffect(() => {
+    const update = () => setSlidesVisible(window.innerWidth < 768 ? 1 : 3);
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
+
   const goTo = useCallback((index: number) => {
     if (loop) {
       setCurrent(((index % count) + count) % count);
@@ -109,7 +118,7 @@ export default function Carousel({
         >
           <div
             className="carousel-track"
-            style={{ transform: `translateX(-${current * 100}%)` }}
+            style={{ transform: `translateX(-${current * (100 / slidesVisible)}%)` }}
           >
             {images.map((img, i) => (
               <div className="carousel-slide" key={i}>
