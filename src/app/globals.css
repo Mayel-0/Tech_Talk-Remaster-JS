@@ -211,6 +211,7 @@ footer {
 	border-top: 1px solid var(--accent2);
 	border-left: 1px solid var(--accent2);
 	border-right: 1px solid var(--accent2);
+	border-bottom: 1px solid var(--accent2);
 	border-radius: 25px 25px 0px 0px;
 	display: flex;
 	align-items: center;
@@ -385,7 +386,7 @@ footer {
   .podcastDetails__info {
     display: flex;
     flex-direction: column;
-    margin-left: 6%;
+    margin-left: 18%;
 		width: 450px;
 
     p {
@@ -397,6 +398,28 @@ footer {
       margin-top: 8%;
     }
   }
+}
+
+li {
+	display: flex;
+	unicode-bidi: none;
+	gap: 6px;
+	margin: 50px 0px 80px 0px;
+}
+
+li div {
+	display: flex;
+	gap: 6px;
+}
+
+li div button {
+	background-color: var(--accent);
+	color: var(--bg);
+	box-shadow: none;
+	border: none;
+	padding: 12px 8px;
+	border-radius: 12px;
+	font-size: 16px;
 }
 
 /* CSS brut - colle direct dans ton fichier */
@@ -1101,6 +1124,14 @@ main {
 	transform: rotate(180deg);
 }
 
+.centre {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 80px;
+
+}
+
 .backgroundSVG.contact img:last-child{
 	position: absolute;
 	left: 0px;
@@ -1160,6 +1191,12 @@ main {
 
 /* Page À propos : 1 colonne sur mobile */
 @media (max-width: 768px) {
+	.centre {
+		text-align: center;
+	}
+	li {
+		flex-direction: column;
+	}
   .section-about {
     grid-template-columns: 1fr;
   }
