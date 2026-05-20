@@ -61,7 +61,7 @@ export default async function Home() {
         <h1 className="centre">Retrouvez tous nos podcasts</h1>
         <li>
           <div>
-            <button>Marketing & Communication</button>
+            <button className="select">Marketing & Communication</button>
             <button>Créa Design</button>
             <button>Tech & Business</button>
             <button>Informatique</button>

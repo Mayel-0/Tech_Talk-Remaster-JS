@@ -422,6 +422,16 @@ li div button {
 	font-size: 16px;
 }
 
+li div button.select {
+	color: var(--text);
+	background-color: var(--accent2);
+}
+
+li div button:hover {
+	color: var(--text);
+	background-color: var(--accent2);
+}
+
 /* CSS brut - colle direct dans ton fichier */
 .podcastDetails__description p {
   max-width: 450px !important;
