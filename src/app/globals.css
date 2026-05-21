@@ -386,7 +386,7 @@ footer {
   .podcastDetails__info {
     display: flex;
     flex-direction: column;
-    margin-left: 18%;
+    margin-left: 12%;
 		width: 450px;
 
     p {
@@ -1175,6 +1175,7 @@ main {
 }
 
 .JustRotateIt {
+	z-index: -100;
   position: absolute;
 	transform: rotate(180deg);
 	right: 0px;
