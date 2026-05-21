@@ -4,7 +4,6 @@ import { createClient } from "../supabase/server";
 import { createAdminClient } from "../supabase/admin";
 import { redirect } from "next/navigation";
 
-
 export type Podcast = {
   id: string;
   title: string;
@@ -24,17 +23,19 @@ export async function getAllPodcasts(): Promise<Podcast[]> {
     .from("podcasts")
     .select(
       `
-      *,
-      podcast_categories (
-        category
-      )
-    `,
+    *,
+    podcast_categories!fk_podcast_categories_podcast (
+      category
+    )
+  `,
     )
     .order("date", { ascending: false });
 
+  console.log("data:", data);
+  console.log("error:", error);
+
   if (error) return [];
 
-  // Garantir que podcast_categories est toujours un tableau
   return data.map((podcast) => ({
     ...podcast,
     podcast_categories: podcast.podcast_categories ?? [],
