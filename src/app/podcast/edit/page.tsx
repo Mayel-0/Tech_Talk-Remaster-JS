@@ -6,6 +6,17 @@ export const metadata: Metadata = {
   title: "Modifier un podcast",
 };
 
+const CATEGORIES = [
+  "Marketing & Communication",
+  "Créa Design",
+  "Tech & Business",
+  "Informatique",
+  "Cybersécurité",
+  "Audiovisuel",
+  "Architecture d'intérieur",
+  "3D, Animation & Jeux Vidéo",
+];
+
 export default async function EditPodcastPage({ searchParams }: { searchParams: Promise<{ id: string }> }) {
   const { id } = await searchParams
   const podcast = await getPodcastById(id)
@@ -35,6 +46,12 @@ export default async function EditPodcastPage({ searchParams }: { searchParams: 
         <img src={podcast.image_url} alt="Image actuelle" style={{ width: 120, height: 120, objectFit: 'cover', borderRadius: 8 }} />
       )}
       <input type="file" name="image" accept="image/*" />
+      {CATEGORIES.map((cat) => (
+        <label key={cat}>
+          <input type="checkbox" name="categories" value={cat} />
+          {cat}
+        </label>
+      ))}
       <button type="submit">Enregistre les modifications</button>
     </form>
   </main>
