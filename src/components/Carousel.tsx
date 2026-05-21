@@ -44,12 +44,13 @@ export default function Carousel({
 
   const goTo = useCallback((index: number) => {
     if (loop) {
-      setCurrent(((index % count) + count) % count);
+      const max = count - slidesVisible;
+      setCurrent(Math.max(0, Math.min(((index % count) + count) % count, max)));
     } else {
-      setCurrent(Math.max(0, Math.min(index, maxIndex)));
+      setCurrent(Math.max(0, Math.min(index, count - slidesVisible)));
     }
     setProgress(0);
-  }, [count, loop, maxIndex]);
+  }, [count, loop, slidesVisible]);
 
   const next = useCallback(() => goTo(current + 1), [current, goTo]);
   const prev = useCallback(() => goTo(current - 1), [current, goTo]);
@@ -161,7 +162,7 @@ export default function Carousel({
           <button
             className="carousel-btn"
             onClick={next}
-            disabled={!loop && current === maxIndex}
+            disabled={!loop && current >= count - slidesVisible}
             aria-label="Suivant"
           >
             →
