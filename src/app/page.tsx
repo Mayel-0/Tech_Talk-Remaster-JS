@@ -42,6 +42,12 @@ export default async function Home() {
             <a href={youtubeUrl}>
               <div className="podcastDetails__image">
                 <img src={podcast.image_url ?? '/svg/logoPodcast.svg'} alt={podcast.title} />
+                <span className="podcastDetails__listen">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="6,4 20,12 6,20" />
+                  </svg>
+                  Écouter
+                </span>
               </div>
             </a>
             <div className="podcastDetails__info">
@@ -52,7 +58,7 @@ export default async function Home() {
                 <label><strong>Résumé :</strong></label>
                 <p>{podcast.description}</p>
               </div>
-            </div>
+            </div>rend
           </div>
         </section>
       )}
@@ -78,6 +84,12 @@ export default async function Home() {
             <div className="Card" key={p.id}>
               <a href={`/podcast/${p.id}`}>
                 <img src={p.image_url ?? '/svg/logoPodcast.svg'} alt={p.title} />
+                <span className="Card__listen">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="6,4 20,12 6,20" />
+                  </svg>
+                  Écouter
+                </span>
                 <div className="podcast">
                   <h2>{p.title}</h2>
                   <p><strong>Invités :</strong></p>

@@ -44,6 +44,12 @@ export default async function PodcastPage() {
         <div className="Card" key={podcast.id}>
           <a href={`/podcast/${podcast.id}`}>
             <img src={podcast.image_url ?? '/svg/logoPodcast.svg'} alt={podcast.title} />
+            <span className="Card__listen">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="6,4 20,12 6,20" />
+              </svg>
+              Écouter
+            </span>
             <div className="podcast">
               <h2>{podcast.title}</h2>
               <p><strong>Invités :</strong></p>

@@ -28,6 +28,12 @@ export default async function DetailsPage({ params }: { params: Promise<{ podcas
       <a href={youtubeUrl}>
         <div className="podcastDetails__image">
           <img src={podcast.image_url ?? '/svg/logoPodcast.svg'} alt={podcast.title} />
+          <span className="podcastDetails__listen">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="6,4 20,12 6,20" />
+            </svg>
+            Écouter
+          </span>
         </div>
       </a>
       <div className="podcastDetails__info">

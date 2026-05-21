@@ -313,19 +313,25 @@ footer {
 }
 
 
-.Card::after {
-	content: "Écouter  ▶";
+.Card__listen {
 	display: flex;
 	align-items: center;
+	gap: 6px;
 	color: var(--bg);
 	background-color: var(--accent);
-	padding: 1px 10px;
-	width: 90px;
+	padding: 0 12px;
 	height: 30px;
 	border-radius: 9px;
 	position: absolute;
-	left: 190px; /* adapte la valeur */
+	left: 190px;
 	bottom: 210px;
+	font-size: 14px;
+	pointer-events: none;
+	svg {
+		width: 12px;
+		height: 12px;
+		flex-shrink: 0;
+	}
 }
 
 .Card .podcast h2 {
@@ -335,40 +341,45 @@ footer {
 	font-size: 22px;
 }
 
-.Card::after {
-	background-image: url("/public/partials/img/play.png");
-	background-repeat: no-repeat;
-	background-position: right 8px center;
-	background-size: 16px 16px;
-}
-
 .Card img {
 
 }
 
-.podcastDetails__image::after {
-	content: "Écouter  ▶";
-	display: flex;
-	align-items: center;
-	color: var(--bg);
-	background-color: var(--accent);
-	padding: 1px 10px;
-	width: 120px;
-	height: 45px;
-	border-radius: 9px;
+.podcastDetails__image {
 	position: relative;
-	bottom: 30px;
-	left: 170px;
-	font-size: 20px;
+	width: 360px;
+	height: 360px;
+	flex-shrink: 0;
+	img {
+		width: 360px;
+		height: 360px;
+		object-fit: cover;
+		border-radius: 8px;
+	}
 }
 
-.podcastDetails__image::after {
-	background-image: url("/public/partials/img/play.png");
-	background-repeat: no-repeat;
-	background-position: right 12px center;
-	background-size: 24px 24px;
+.podcastDetails__listen {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	color: var(--bg);
+	background-color: var(--accent);
+	padding: 0 16px;
+	height: 45px;
+	border-radius: 9px;
+	position: absolute;
+	bottom: -16px;
+	right: -16px;
+	font-size: 20px;
+	pointer-events: none;
+	svg {
+		width: 16px;
+		height: 16px;
+		flex-shrink: 0;
+	}
 }
-.podcastDetails__image svg {
+
+.podcastDetails__image > svg {
 	height: 360px;
 	width: 360px;
 }
@@ -1089,7 +1100,7 @@ main {
 	align-items: center;
 	justify-content: center;
 	width: 650px;
-	max-width: 1200px;
+	max-width: calc(100% - 2rem);
 	.form-group{
 		width: 100%;
 		margin: 0px;
@@ -1302,10 +1313,6 @@ main {
 
 /* Page Contact : formulaire fluide sur mobile */
 @media (max-width: 768px) {
-  .contact-form {
-    width: 100%;
-  }
-
   .contact-form .form-group-top {
     flex-direction: column;
     gap: 0;
@@ -1335,14 +1342,19 @@ main {
     align-items: center;
   }
 
-  .podcastDetails__image svg {
-    height: 220px;
+  .podcastDetails__image {
     width: 220px;
+    height: 220px;
+    img {
+      width: 220px;
+      height: 220px;
+    }
+    > svg {
+      height: 220px;
+      width: 220px;
+    }
   }
 
-  .podcastDetails__image::after {
-    left: 130px;
-  }
 
   .podcastDetails .podcastDetails__info {
     width: 100% !important;
