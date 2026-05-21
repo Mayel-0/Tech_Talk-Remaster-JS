@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <footer>
-      <img src="/svg/logo.svg" alt="Logo" />
+      <a href="/"><img src="/svg/logo.svg" alt="Logo" /></a>
       <div>
         <div>
           <a href="/index">Accueil</a>
