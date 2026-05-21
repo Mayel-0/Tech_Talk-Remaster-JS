@@ -33,8 +33,8 @@ export default function PodcastClient({ podcasts = [], isAdmin }: Props) {
     activeCategories.length === 0
       ? podcasts
       : podcasts.filter((podcast) =>
-          activeCategories.every((cat) =>
-            (podcast.podcast_categories ?? []).some((c) => c.category === cat)
+          (podcast.podcast_categories ?? []).some((c) =>
+            activeCategories.includes(c.category)
           )
         );
 
