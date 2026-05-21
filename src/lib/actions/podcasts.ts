@@ -4,6 +4,8 @@ import { createClient } from "../supabase/server";
 import { createAdminClient } from "../supabase/admin";
 import { redirect } from "next/navigation";
 
+export const dynamic = "force-dynamic"; //
+
 export type Podcast = {
   id: string;
   title: string;
