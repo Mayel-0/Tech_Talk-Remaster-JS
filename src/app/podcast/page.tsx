@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import type { Podcast } from "@/lib/actions/podcasts";
+import { deletePodcast } from "@/lib/actions/podcasts";
+
 
 const CATEGORIES = [
   "Marketing & Communication",
