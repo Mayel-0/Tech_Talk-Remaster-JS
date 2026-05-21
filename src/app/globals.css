@@ -422,6 +422,7 @@ footer {
 li {
 	display: flex;
 	unicode-bidi: none;
+	justify-content: center;
 	gap: 6px;
 	margin: 50px 0px 80px 0px;
 }
@@ -429,6 +430,7 @@ li {
 li div {
 	display: flex;
 	gap: 6px;
+	justify-content: center;
 }
 
 li div button {
@@ -1404,6 +1406,12 @@ main {
 
 	li {
 		padding: 8px;
+		width: 100%
+	}
+
+	li div {
+		flex-direction: column;
+		padding: 0px 20px;;
 	}
 
 	.box {

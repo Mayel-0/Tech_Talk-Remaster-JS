@@ -23,11 +23,11 @@ export async function getAllPodcasts(): Promise<Podcast[]> {
     .from("podcasts")
     .select(
       `
-      *,
-      podcast_categories!fk_podcast_categories_podcast (
-        category
-      )
-    `,
+    *,
+    podcast_categories (
+      category
+    )
+  `,
     )
     .order("date", { ascending: false });
 
@@ -64,11 +64,11 @@ export async function getPodcastById(id: string): Promise<Podcast | null> {
     .from("podcasts")
     .select(
       `
-      *,
-      podcast_categories!fk_podcast_categories_podcast (
-        category
-      )
-    `,
+    *,
+    podcast_categories (
+      category
+    )
+  `,
     )
     .eq("id", id)
     .single();
@@ -85,11 +85,11 @@ export async function getLastPodcast(): Promise<Podcast | null> {
     .from("podcasts")
     .select(
       `
-      *,
-      podcast_categories!fk_podcast_categories_podcast (
-        category
-      )
-    `,
+    *,
+    podcast_categories (
+      category
+    )
+  `,
     )
     .order("created_at", { ascending: false })
     .limit(1)
