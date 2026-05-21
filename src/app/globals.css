@@ -441,6 +441,7 @@ li div button {
 	padding: 12px 8px;
 	border-radius: 12px;
 	font-size: 16px;
+	transition: all 0.3s ease;
 }
 
 li div button.select {
@@ -451,6 +452,9 @@ li div button.select {
 li div button:hover {
 	color: var(--text);
 	background-color: var(--accent2);
+	cursor: pointer;
+	transform: scale(1.1);
+	margin: 0px 6px;
 }
 
 /* CSS brut - colle direct dans ton fichier */
