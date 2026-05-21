@@ -14,7 +14,7 @@ const CATEGORIES = [
   "Cybersécurité",
   "Audiovisuel",
   "Architecture",
-  "3D, Animation & Jeux Vidéo",
+  "3D, Animation & Jeux vidéo",
 ];
 
 export default async function EditPodcastPage({ searchParams }: { searchParams: Promise<{ id: string }> }) {
