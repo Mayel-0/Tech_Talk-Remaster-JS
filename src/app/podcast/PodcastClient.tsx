@@ -21,13 +21,22 @@ type Props = {
 };
 
 export default function PodcastClient({ podcasts = [], isAdmin }: Props) {
-  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [activeCategories, setActiveCategories] = useState<string[]>([]);
 
-  const filteredPodcasts = activeCategory
-    ? podcasts.filter((podcast) =>
-        (podcast.podcast_categories ?? []).some((c) => c.category === activeCategory)
-      )
-    : podcasts;
+  const toggleCategory = (cat: string) => {
+    setActiveCategories((prev) =>
+      prev.includes(cat) ? prev.filter((c) => c !== cat) : [...prev, cat]
+    );
+  };
+
+  const filteredPodcasts =
+    activeCategories.length === 0
+      ? podcasts
+      : podcasts.filter((podcast) =>
+          activeCategories.every((cat) =>
+            (podcast.podcast_categories ?? []).some((c) => c.category === cat)
+          )
+        );
 
   return (
     <main className="container views">
@@ -38,8 +47,8 @@ export default function PodcastClient({ podcasts = [], isAdmin }: Props) {
           {CATEGORIES.map((cat) => (
             <button
               key={cat}
-              className={activeCategory === cat ? "select" : ""}
-              onClick={() => setActiveCategory(activeCategory === cat ? null : cat)}
+              className={activeCategories.includes(cat) ? "select" : ""}
+              onClick={() => toggleCategory(cat)}
             >
               {cat}
             </button>
