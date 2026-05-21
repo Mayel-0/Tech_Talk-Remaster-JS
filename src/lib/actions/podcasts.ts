@@ -13,6 +13,7 @@ export type Podcast = {
   date: string | null;
   image_url: string | null;
   created_at: string;
+  podcast_categories: { category: string }[];
 };
 
 export async function getAllPodcasts(): Promise<Podcast[]> {
@@ -20,7 +21,14 @@ export async function getAllPodcasts(): Promise<Podcast[]> {
 
   const { data, error } = await supabase
     .from("podcasts")
-    .select("*")
+    .select(
+      `
+      *,
+      podcast_categories (
+        category
+      )
+    `,
+    )
     .order("date", { ascending: false });
 
   if (error) return [];
@@ -28,12 +36,34 @@ export async function getAllPodcasts(): Promise<Podcast[]> {
   return data;
 }
 
+export async function getCategoriesByPodcast(
+  podcastId: string,
+): Promise<string[]> {
+  const supabase = await createClient();
+
+  const { data, error } = await supabase
+    .from("podcast_categories")
+    .select("category")
+    .eq("podcast_id", podcastId);
+
+  if (error) return [];
+
+  return data.map((item) => item.category);
+}
+
 export async function getPodcastById(id: string): Promise<Podcast | null> {
   const supabase = await createClient();
 
   const { data, error } = await supabase
     .from("podcasts")
-    .select("*")
+    .select(
+      `
+      *,
+      podcast_categories (
+        category
+      )
+    `,
+    )
     .eq("id", id)
     .single();
 
@@ -47,7 +77,14 @@ export async function getLastPodcast(): Promise<Podcast | null> {
 
   const { data, error } = await supabase
     .from("podcasts")
-    .select("*")
+    .select(
+      `
+      *,
+      podcast_categories (
+        category
+      )
+    `,
+    )
     .order("created_at", { ascending: false })
     .limit(1)
     .single();
@@ -81,17 +118,35 @@ export async function createPodcast(formData: FormData) {
       : null;
 
   const date = (formData.get("date") as string) || null;
+  const categories = formData.getAll("categories") as string[];
 
-  const { error } = await supabase.from("podcasts").insert({
-    title: formData.get("title") as string,
-    description: formData.get("description") as string,
-    youtube_url: formData.get("youtube_url") as string,
-    name_intervenant: formData.get("name_intervenant") as string,
-    date,
-    image_url,
-  });
+  const { data, error } = await supabase
+    .from("podcasts")
+    .insert({
+      title: formData.get("title") as string,
+      description: formData.get("description") as string,
+      youtube_url: formData.get("youtube_url") as string,
+      name_intervenant: formData.get("name_intervenant") as string,
+      date,
+      image_url,
+    })
+    .select("id")
+    .single();
 
   if (error) throw new Error(error.message);
+
+  if (categories.length > 0) {
+    const { error: catError } = await supabase
+      .from("podcast_categories")
+      .insert(
+        categories.map((category) => ({
+          podcast_id: data.id,
+          category,
+        })),
+      );
+
+    if (catError) throw new Error(catError.message);
+  }
 
   redirect("/podcast");
 }
@@ -120,6 +175,26 @@ export async function updatePodcast(id: string, formData: FormData) {
     .eq("id", id);
 
   if (error) throw new Error(error.message);
+
+  // Mettre à jour les catégories
+  const categories = formData.getAll("categories") as string[];
+
+  // Supprimer les anciennes catégories
+  await supabase.from("podcast_categories").delete().eq("podcast_id", id);
+
+  // Insérer les nouvelles
+  if (categories.length > 0) {
+    const { error: catError } = await supabase
+      .from("podcast_categories")
+      .insert(
+        categories.map((category) => ({
+          podcast_id: id,
+          category,
+        })),
+      );
+
+    if (catError) throw new Error(catError.message);
+  }
 
   redirect("/podcast");
 }

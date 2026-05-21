@@ -67,7 +67,7 @@ export default async function Home() {
         <h1 className="centre">Retrouvez tous nos Episodes</h1>
         <li>
           <div>
-            <button className="select">Marketing & Communication</button>
+            <button>Marketing & Communication</button>
             <button>Créa Design</button>
             <button>Tech & Business</button>
             <button>Informatique</button>
