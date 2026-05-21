@@ -23,15 +23,15 @@ export async function getAllPodcasts(): Promise<Podcast[]> {
     .from("podcasts")
     .select(
       `
-    *,
-    podcast_categories!fk_podcast_categories_podcast (
-      category
-    )
-  `,
+      *,
+      podcast_categories!fk_podcast_categories_podcast (
+        category
+      )
+    `,
     )
     .order("date", { ascending: false });
 
-  console.log("data:", data);
+  console.log("data:", JSON.stringify(data, null, 2));
   console.log("error:", error);
 
   if (error) return [];
@@ -65,7 +65,7 @@ export async function getPodcastById(id: string): Promise<Podcast | null> {
     .select(
       `
       *,
-      podcast_categories (
+      podcast_categories!fk_podcast_categories_podcast (
         category
       )
     `,
@@ -86,7 +86,7 @@ export async function getLastPodcast(): Promise<Podcast | null> {
     .select(
       `
       *,
-      podcast_categories (
+      podcast_categories!fk_podcast_categories_podcast (
         category
       )
     `,

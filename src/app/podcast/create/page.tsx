@@ -12,8 +12,8 @@ const CATEGORIES = [
   "Informatique",
   "Cybersécurité",
   "Audiovisuel",
-  "Architecture d'intérieur",
-  "3D, Animation & Jeux Vidéo",
+  "Architecture",
+  "3D, Animation & Jeux vidéo",
 ];
 
 export default function CreatePodcastPage() {
