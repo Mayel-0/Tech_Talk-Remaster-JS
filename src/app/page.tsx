@@ -58,7 +58,7 @@ export default async function Home() {
                 <label><strong>Résumé :</strong></label>
                 <p>{podcast.description}</p>
               </div>
-            </div>rend
+            </div>
           </div>
         </section>
       )}
