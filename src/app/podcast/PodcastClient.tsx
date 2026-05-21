@@ -11,7 +11,7 @@ const CATEGORIES = [
   "Informatique",
   "Cybersécurité",
   "Audiovisuel",
-  "Architecture d\u2019int\u00e9rieur",
+  "Architecture",
   "3D, Animation & Jeux vidéo",
 ];
 
