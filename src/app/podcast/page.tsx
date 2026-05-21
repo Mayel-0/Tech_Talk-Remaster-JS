@@ -78,7 +78,7 @@ export default function PodcastClient({ podcasts, isAdmin }: Props) {
                 <a href={`/podcast/edit?id=${podcast.id}`}>
                   <button type="submit">Éditer</button>
                 </a>
-                <form action={`/podcast/delete/${podcast.id}`} method="POST">
+                <form action={deletePodcast.bind(null, podcast.id)}>
                   <button type="submit">Supprimer</button>
                 </form>
               </div>
