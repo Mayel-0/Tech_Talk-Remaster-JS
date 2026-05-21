@@ -13,7 +13,7 @@ const CATEGORIES = [
   "Informatique",
   "Cybersécurité",
   "Audiovisuel",
-  "Architecture d'intérieur",
+  "Architecture",
   "3D, Animation & Jeux Vidéo",
 ];
 
