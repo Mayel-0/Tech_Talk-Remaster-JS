@@ -39,14 +39,17 @@ export default function Carousel({
     return () => window.removeEventListener('resize', update);
   }, []);
 
+  // CORRECTION ICI : On limite le défilement maximum pour ne pas afficher de vide sur PC
+  const maxIndex = loop ? count : Math.max(0, count - slidesVisible);
+
   const goTo = useCallback((index: number) => {
     if (loop) {
       setCurrent(((index % count) + count) % count);
     } else {
-      setCurrent(Math.max(0, Math.min(index, count - 1)));
+      setCurrent(Math.max(0, Math.min(index, maxIndex)));
     }
     setProgress(0);
-  }, [count, loop]);
+  }, [count, loop, maxIndex]);
 
   const next = useCallback(() => goTo(current + 1), [current, goTo]);
   const prev = useCallback(() => goTo(current - 1), [current, goTo]);
@@ -116,6 +119,7 @@ export default function Carousel({
           onTouchStart={onTouchStart}
           onTouchEnd={onTouchEnd}
         >
+          {/* MODIFICATION ICI : Dynamique selon l'écran */}
           <div
             className="carousel-track"
             style={{ transform: `translateX(-${current * (100 / slidesVisible)}%)` }}
@@ -157,7 +161,7 @@ export default function Carousel({
           <button
             className="carousel-btn"
             onClick={next}
-            disabled={!loop && current === count - 1}
+            disabled={!loop && current === maxIndex}
             aria-label="Suivant"
           >
             →

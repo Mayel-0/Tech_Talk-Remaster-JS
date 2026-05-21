@@ -400,6 +400,14 @@ footer {
   }
 }
 
+.colorstrong {
+	color: var(--accent1);
+}
+
+.hrcolor {
+	border: 1px solid var(--accent);
+}
+
 li {
 	display: flex;
 	unicode-bidi: none;

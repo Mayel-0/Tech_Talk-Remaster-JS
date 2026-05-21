@@ -24,7 +24,7 @@ export default async function PodcastPage() {
 
   return (
   <main className="container views">
-    <h1 className="centre">Retrouvez tous nos podcasts</h1>
+    <h1 className="centre">Retrouvez tous nos Episodes</h1>
     <li>
       <div>
         <button className="select">Marketing & Communication</button>
