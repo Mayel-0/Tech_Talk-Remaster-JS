@@ -12,7 +12,7 @@ const CATEGORIES = [
   "Cybersécurité",
   "Audiovisuel",
   "Architecture d'intérieur",
-  "3D, Animation & Jeux Vidéo",
+  "3D, Animation & Jeux vidéo",
 ];
 
 type Props = {
