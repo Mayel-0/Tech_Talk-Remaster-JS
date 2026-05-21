@@ -4,6 +4,7 @@ import { useState } from "react";
 import type { Podcast } from "@/lib/actions/podcasts";
 import { deletePodcast } from "@/lib/actions/podcasts";
 
+export const dynamic = "force-dynamic"; //
 
 const CATEGORIES = [
   "Marketing & Communication",
