@@ -26,7 +26,7 @@ export default function PodcastClient({ podcasts, isAdmin }: Props) {
 
   const filteredPodcasts = activeCategory
     ? podcasts.filter((podcast) =>
-        podcast.podcast_categories.some((c) => c.category === activeCategory)
+        (podcast.podcast_categories ?? []).some((c) => c.category === activeCategory)
       )
     : podcasts;
 

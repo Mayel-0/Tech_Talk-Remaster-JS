@@ -13,7 +13,7 @@ export type Podcast = {
   date: string | null;
   image_url: string | null;
   created_at: string;
-  podcast_categories: { category: string }[];
+  podcast_categories: { category: string }[]; // peut être undefined au runtime
 };
 
 export async function getAllPodcasts(): Promise<Podcast[]> {
@@ -33,7 +33,11 @@ export async function getAllPodcasts(): Promise<Podcast[]> {
 
   if (error) return [];
 
-  return data;
+  // Garantir que podcast_categories est toujours un tableau
+  return data.map((podcast) => ({
+    ...podcast,
+    podcast_categories: podcast.podcast_categories ?? [],
+  }));
 }
 
 export async function getCategoriesByPodcast(
